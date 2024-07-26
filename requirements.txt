@@ -1,0 +1,7 @@
+datasets
+ipykernel
+ipywidgets
+matplotlib
+numpy
+pandas
+transformers
