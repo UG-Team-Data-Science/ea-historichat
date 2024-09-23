@@ -1,7 +1,9 @@
 datasets
+gradio
 ipykernel
 ipywidgets
 matplotlib
 numpy
 pandas
 transformers
+vllm

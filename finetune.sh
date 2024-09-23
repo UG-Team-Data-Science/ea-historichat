@@ -1,0 +1,1 @@
+accelerate launch -m axolotl.cli.train ea-bot-mistral.yaml
