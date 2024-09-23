@@ -16,7 +16,7 @@ def predict(message, history):
     response = client.chat.completions.create(
         model="./models/eam-bot",
         messages=history_openai_format,
-        temperature=1.0,
+        temperature=0.7,
         stream=True,
     )
 
@@ -26,8 +26,18 @@ def predict(message, history):
             partial_message = partial_message + chunk.choices[0].delta.content
             yield partial_message
 
+
 with open("README.md", "r") as f:
     description = f.read()
 
 
-gr.ChatInterface(predict, title="Early American Historichat", description=description, examples=["Why is the sky blue?", "Why is water wet?"]).queue().launch(share=True)
+gr.ChatInterface(
+    predict,
+    title="Early American Historichat",
+    description=description,
+    examples=[
+        "Why is the sky blue?",
+        "Why is water wet?",
+        "Why did Judas rat to Romans while Jesus slept?",
+    ],
+).queue().launch(show_api=False)
